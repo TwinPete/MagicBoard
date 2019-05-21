@@ -1,6 +1,7 @@
 <template>
-   <div class="key" v-bind:class="[kei.color, kei.class]">
-       
+   <div
+            class="key" v-bind:class="[kei.color, kei.class, kei.isActive]" v-on:mousedown="playKey()" v-on:mouseup="releaseKey()" v-on:mouseover="slide()">
+
    </div>
 </template>
 
@@ -11,6 +12,28 @@ export default {
   components: {
   },
   props: ['kei'],
+   methods:{
+     playKey(){
+        this.kei.isActive = this.kei.color + '--active';
+        console.log(this.kei.siblings);
+     },
+      releaseKey(){
+
+         this.kei.isActive = this.kei.color + '--inactive';
+      },
+      slide(){
+         for (var key of this.kei.siblings) {
+            // console.log(document.querySelector('.' + key).classList);
+            if (document.querySelector('.' + key).classList.contains('key--white--active') || document.querySelector('.' + key).classList.contains('key--black--active')) {
+               document.querySelector('.' + key).classList.remove('key--white--active');
+               document.querySelector('.' + key).classList.remove('key--black--active');
+               this.kei.isActive = this.kei.color + '--active';
+               break;
+            }
+         }
+
+      }
+   }
 }
 </script>
 
@@ -28,10 +51,10 @@ export default {
     transition: width ease 0.3s;
 }
 
-.key--white:hover{
-    background-color: palegreen;
+.key--white--active{
+    background-color: palegreen!important;
     z-index: 4;
-    width: 98%;
+    width: 98%!important;
 }
 
 .key--black{
@@ -47,10 +70,10 @@ export default {
     box-shadow: 1px 1px 1px 1px #444;
 }
 
-.key--black:hover{
-    background-color: paleturquoise;
+.key--black--active{
+    background-color: paleturquoise!important;
     z-index: 7;
-    width: 68%;
+    width: 68%!important;
 }
 
 .c-sharp{
@@ -89,18 +112,18 @@ export default {
         transition: height ease 0.3s;
     }
 
-    .key--white:hover{
-        background-color: palegreen;
+    .key--white--active{
+        background-color: palegreen!important;
         z-index: 4;
-        height: 98%;
-        width: 14.2857142857%;
+        height: 98%!important;
+        width: 14.2857142857%!important;
     }
 
-    .key--black:hover{
-        background-color: paleturquoise;
+    .key--black--active{
+        background-color: paleturquoise!important;
         z-index: 7;
-        height: 68%;
-        width: 8%;
+        height: 68%!important;
+        width: 8%!important;
     }
 
     .key--black{

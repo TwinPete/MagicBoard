@@ -20,73 +20,92 @@ export default {
               name: 'C',
               pitch: 3,
               color: 'key--white',
-              class: 'c'
+              class: 'c',
+               isActive : 'key--white--inactive',
+               siblings: ['b', 'c-sharp', 'd']
            },
            {
               name: 'C#',
               pitch: 3,
               color: 'key--black',
-              class: 'c-sharp'
+              class: 'c-sharp',
+               isActive : 'key--black--inactive',
+               siblings: ['c', 'd']
            },
            { 
-              key: 'D',
+              name: 'D',
               pitch: 3,
               color: 'key--white',
-              class: 'd'
+              class: 'd',
+               isActive : 'key--white--inactive',
+               siblings: ['c', 'c-sharp', 'd-sharp', 'e']
            },
            {
               name: 'D#',
               pitch: 3,
               color: 'key--black',
-              class: 'd-sharp'
+              class: 'd-sharp',
+               isActive : 'key--white--inactive',
+               siblings: ['d', 'e']
+
            },
            { 
               name: 'E',
               pitch: 3,
               color: 'key--white',
-              class: 'e'
+              class: 'e',
+               isActive : 'key--white--inactive',
+               siblings: ['d', 'd-sharp', 'f']
            },
            { 
               name: 'F',
               pitch: 3,
               color: 'key--white',
-              class: 'f'
+              class: 'f',
+               isActive : 'key--white--inactive',
+               siblings: ['e', 'f-sharp', 'g']
            },
            {
               name: 'F#',
               pitch: 3,
               color: 'key--black',
-              class: 'f-sharp'
+              class: 'f-sharp',
+               isActive : 'key--white--inactive'
            },
            { 
               name: 'G',
               pitch: 3,
               color: 'key--white',
-              class: 'g'
+              class: 'g',
+               isActive : 'key--white--inactive'
            },
            {
               name: 'G#',
               pitch: 3,
               color: 'key--black',
-              class: 'g-sharp'
+              class: 'g-sharp',
+               isActive : 'key--white--inactive'
            },
            { 
               name: 'A',
               pitch: 3,
               color: 'key--white',
-              class: 'a'
+              class: 'a',
+               isActive : 'key--white--inactive'
            },
            {
               name: 'A#',
               pitch: 3,
               color: 'key--black',
-              class: 'a-sharp'
+              class: 'a-sharp',
+               isActive : 'key--white--inactive'
            },
            { 
               name: 'B',
               pitch: 3,
               color: 'key--white',
-              class: 'b'
+              class: 'b',
+               isActive : 'key--white--inactive'
            },
       ]
       }
