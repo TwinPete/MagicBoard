@@ -1,8 +1,12 @@
 <template>
    <div
-            class="key" v-bind:class="[kei.color, kei.class, kei.isActive]" v-on:mousedown="playKey()" v-on:mouseup="releaseKey()" v-on:mouseover="slide()">
-
-   </div>
+            class="key"
+            v-bind:class="[kei.color, kei.class, {active: kei.isActive}]"
+            v-on:mousedown="playKey()"
+            v-on:mouseleave="leaveKey()"
+            v-on:mouseup="releaseKey()"
+            v-on:mouseover="slide()"
+   ></div>
 </template>
 
 <script>
@@ -14,24 +18,44 @@ export default {
   props: ['kei'],
    methods:{
      playKey(){
-        this.kei.isActive = this.kei.color + '--active';
-        console.log(this.kei.siblings);
+        this.kei.isActive = true;
+
+         document.querySelector('.keyboard').classList.add('hover');
+
      },
       releaseKey(){
-
-         this.kei.isActive = this.kei.color + '--inactive';
+         // alert('fgjgh');
+         this.kei.isActive = false;
+         document.querySelector('.keyboard').classList.remove('hover');
+         },
+      leaveKey(){
+         this.kei.isActive = false;
       },
       slide(){
-         for (var key of this.kei.siblings) {
-            // console.log(document.querySelector('.' + key).classList);
-            if (document.querySelector('.' + key).classList.contains('key--white--active') || document.querySelector('.' + key).classList.contains('key--black--active')) {
-               document.querySelector('.' + key).classList.remove('key--white--active');
-               document.querySelector('.' + key).classList.remove('key--black--active');
-               this.kei.isActive = this.kei.color + '--active';
-               break;
-            }
+         // console.log('slide');
+         // if(this.$el.classList.contains('hover')){
+         //    console.log('hit');
+         // }
+         // if(this.$el.classList.contains('hover')){
+         //    // document.querySelector('.active').classList.remove('.active');
+         //    this.kei.isActive = true;
+         //
+         //    let elementsWithHover = document.getElementsByClassName('hover');
+         //    for(var element of elementsWithHover){
+         //       element.classList.remove('hover');
+         //       // document.querySelector('.' + key).kei.hover = false;
+         //
+         //    }
+         //
+         //    for (var key of this.kei.siblings) {
+         //       document.querySelector('.' + key).classList.add('hover');
+         //       // document.querySelector('.' + key).kei.hover = true;
+         //    }
+         // }
+         let hoverModeActive = document.querySelector('.keyboard').classList.contains('hover');
+         if( hoverModeActive){
+            this.kei.isActive = true;
          }
-
       }
    }
 }
@@ -51,7 +75,7 @@ export default {
     transition: width ease 0.3s;
 }
 
-.key--white--active{
+.key--white.active{
     background-color: palegreen!important;
     z-index: 4;
     width: 98%!important;
@@ -70,29 +94,29 @@ export default {
     box-shadow: 1px 1px 1px 1px #444;
 }
 
-.key--black--active{
+.key--black.active{
     background-color: paleturquoise!important;
     z-index: 7;
     width: 68%!important;
 }
 
-.c-sharp{
+.c-sharp1, .c-sharp2, .c-sharp3, .c-sharp4, .c-sharp5, .c-sharp6, .c-sharp7{
     top: 8%;
 }
 
-.d-sharp{
+.d-sharp1, .d-sharp2, .d-sharp3, .d-sharp4, .d-sharp5, .d-sharp6, .d-sharp7{
     top: 24%;
 }
 
-.f-sharp{
+.f-sharp1, .f-sharp2, .f-sharp3, .f-sharp4, .f-sharp5, .f-sharp6, .f-sharp7{
     top: 51%;
 }
 
-.g-sharp{
+.g-sharp1, .g-sharp2, .g-sharp3, .g-sharp4, .g-sharp5, .g-sharp6, .g-sharp7{
     top: 66%;
 }
 
-.a-sharp{
+.a-sharp1, .a-sharp2, .a-sharp3, .a-sharp4, .a-sharp5, .a-sharp6, .a-sharp7{
     top: 82%;
 }
 
@@ -112,14 +136,14 @@ export default {
         transition: height ease 0.3s;
     }
 
-    .key--white--active{
+    .key--white.active{
         background-color: palegreen!important;
         z-index: 4;
         height: 98%!important;
         width: 14.2857142857%!important;
     }
 
-    .key--black--active{
+    .key--black.active{
         background-color: paleturquoise!important;
         z-index: 7;
         height: 68%!important;
@@ -133,24 +157,24 @@ export default {
         transition: height ease 0.3s;
     }
 
-    .c-sharp{
+   .c-sharp1, .c-sharp2, .c-sharp3, .c-sharp4, .c-sharp5, .c-sharp6, .c-sharp7{
         left: 9%;
 
     }
 
-    .d-sharp{
+   .d-sharp1, .d-sharp2, .d-sharp3, .d-sharp4, .d-sharp5, .d-sharp6, .d-sharp7{
         left: 26%;
     }
 
-    .f-sharp{
+   .f-sharp1, .f-sharp2, .f-sharp3, .f-sharp4, .f-sharp5, .f-sharp6, .f-sharp7{
         left: 52%;
     }
 
-    .g-sharp{
+   .g-sharp1, .g-sharp2, .g-sharp3, .g-sharp4, .g-sharp5, .g-sharp6, .g-sharp7{
         left: 67.3%;
     }
 
-    .a-sharp{
+   .a-sharp1, .a-sharp2, .a-sharp3, .a-sharp4, .a-sharp5, .a-sharp6, .a-sharp7{
         left: 82.5%;
     }
     

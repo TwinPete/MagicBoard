@@ -12,100 +12,118 @@ export default {
   components: {
     Key
   },
-  props:{},
+  props:['pitch'],
   data() {
       return{
           keys: [
            { 
-              name: 'C',
+              name: 'C' + this.pitch ,
               pitch: 3,
               color: 'key--white',
-              class: 'c',
-               isActive : 'key--white--inactive',
-               siblings: ['b', 'c-sharp', 'd']
+              class: 'c' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['b' + (parseInt(this.pitch, 10)-1), 'c-sharp' + this.pitch, 'd' + this.pitch]
            },
            {
-              name: 'C#',
+              name: 'C#' + this.pitch,
               pitch: 3,
               color: 'key--black',
-              class: 'c-sharp',
-               isActive : 'key--black--inactive',
-               siblings: ['c', 'd']
+              class: 'c-sharp' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['c' + this.pitch, 'd' + this.pitch]
            },
            { 
-              name: 'D',
+              name: 'D' + this.pitch,
               pitch: 3,
               color: 'key--white',
-              class: 'd',
-               isActive : 'key--white--inactive',
-               siblings: ['c', 'c-sharp', 'd-sharp', 'e']
+              class: 'd' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['c' + this.pitch, 'c-sharp' + this.pitch, 'd-sharp' + this.pitch, 'e' + this.pitch]
            },
            {
-              name: 'D#',
+              name: 'D#' + this.pitch,
               pitch: 3,
               color: 'key--black',
-              class: 'd-sharp',
-               isActive : 'key--white--inactive',
-               siblings: ['d', 'e']
+              class: 'd-sharp' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['d' + this.pitch, 'e' + this.pitch]
 
            },
            { 
-              name: 'E',
+              name: 'E' + this.pitch,
               pitch: 3,
               color: 'key--white',
-              class: 'e',
-               isActive : 'key--white--inactive',
-               siblings: ['d', 'd-sharp', 'f']
+              class: 'e' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['d' + this.pitch, 'd-sharp' + this.pitch, 'f' + this.pitch]
            },
            { 
-              name: 'F',
+              name: 'F' + this.pitch,
               pitch: 3,
               color: 'key--white',
-              class: 'f',
-               isActive : 'key--white--inactive',
-               siblings: ['e', 'f-sharp', 'g']
+              class: 'f' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['e' + this.pitch, 'f-sharp' + this.pitch, 'g' + this.pitch]
            },
            {
-              name: 'F#',
+              name: 'F#' + this.pitch,
               pitch: 3,
               color: 'key--black',
-              class: 'f-sharp',
-               isActive : 'key--white--inactive'
+              class: 'f-sharp' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['f' + this.pitch, 'g' + this.pitch]
            },
            { 
-              name: 'G',
+              name: 'G' + this.pitch,
               pitch: 3,
               color: 'key--white',
-              class: 'g',
-               isActive : 'key--white--inactive'
+              class: 'g' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['f' + this.pitch, 'f-sharp' + this.pitch, 'g-sharp' + this.pitch, 'a' + this.pitch]
            },
            {
-              name: 'G#',
+              name: 'G#' + this.pitch,
               pitch: 3,
               color: 'key--black',
-              class: 'g-sharp',
-               isActive : 'key--white--inactive'
+              class: 'g-sharp' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['g' + this.pitch, 'a' + this.pitch]
            },
            { 
-              name: 'A',
+              name: 'A' + this.pitch,
               pitch: 3,
               color: 'key--white',
-              class: 'a',
-               isActive : 'key--white--inactive'
+              class: 'a' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['g' + this.pitch, 'g-sharp' + this.pitch, 'a-sharp' + this.pitch, 'b' + this.pitch]
            },
            {
-              name: 'A#',
+              name: 'A#' + this.pitch,
               pitch: 3,
               color: 'key--black',
-              class: 'a-sharp',
-               isActive : 'key--white--inactive'
+              class: 'a-sharp' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['a' + this.pitch, 'b' + this.pitch]
            },
            { 
-              name: 'B',
+              name: 'B' + this.pitch,
               pitch: 3,
               color: 'key--white',
-              class: 'b',
-               isActive : 'key--white--inactive'
+              class: 'b' + this.pitch,
+               isActive : false,
+               hover : false,
+               siblings: ['a' + this.pitch, 'a-sharp' + this.pitch, 'c' + (parseInt(this.pitch, 10)+1)]
            },
       ]
       }

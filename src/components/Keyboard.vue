@@ -1,6 +1,6 @@
 <template>
    <div class="keyboard">
-       <Octave v-bind:key="index" v-for="(octave, index) in octaves" />
+       <Octave v-bind:pitch="octave.pitch" v-bind:key="index" v-for="(octave, index) in octaves" />
 
    </div>
 </template>
