@@ -1,18 +1,34 @@
 <template>
-    <div class="toolbar">
-        <!-- <div class="circle">button</div>
-        <div class="circle">dfh</div>
-        <div class="circle">fgjd</div> -->
+    <div class="toolbar"
+         v-on:click="switchBoard()"
+    >
+        <div class="options">
+            <div class="circle">button</div>
+            <div class="circle">dfh</div>
+            <div class="circle">fgjd</div>
+        </div>
+        <div class="switch">
+            <div class="circle">
+                <div v-if="soundboardActive">Soundboard</div>
+                <div v-else>Keyboard</div>
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 export default {
   name: 'Toolbar',
-  props: {
-    
-  }
+  props: ['soundboardActive'],
+    methods:{
+        switchBoard(){
+            this.soundboardActive = !this.soundboardActive;
+            this.$root.$emit('clickedSomething');
+        }
+
+    }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -24,7 +40,7 @@ export default {
         justify-content: flex-start;
         flex-direction: column;
         align-items: flex-start;
-        padding: 10px;
+        padding: 20px;
         writing-mode: vertical-lr;
     }
     .circle{
@@ -45,12 +61,12 @@ export default {
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
+            writing-mode: horizontal-tb;
         }
         .circle{
             margin-left: 10px;
             min-width: 100px;
             text-align: center;
-            writing-mode: horizontal-tb;
             height: auto;
             margin-bottom: 0;
         }

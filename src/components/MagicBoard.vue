@@ -1,9 +1,10 @@
 <template>
       <div class="wrapper">
-        <Toolbar />        
+        <Toolbar v-on:clickedSomething="switchBoard" v-bind:soundboardActive='soundboardActive'/>
         <div class="magicboard">
           <div class="frame">
-            <Keyboard /> 
+              <Soundboard  v-bind:soundboardActive='soundboardActive' />
+            <Keyboard />
           </div>
       </div> 
       </div>
@@ -12,16 +13,28 @@
 <script>
 import Toolbar from './Toolbar.vue'
 import Keyboard from './Keyboard.vue'
+import Soundboard from './Soundboard.vue'
 
 export default {
   name: 'MagicBoard',
   components: {
     Toolbar,
-    Keyboard
+    Keyboard,
+      Soundboard
   },
   props: {
     
-  }
+  },
+    data(){
+        return{
+            soundboardActive: false
+        }
+    },
+    methods: {
+        handleClickInParent: function(){
+            this.soundboardActive = !this.soundboardActive;
+        }
+    }
 }
 </script>
 
