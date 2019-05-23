@@ -31,12 +31,17 @@
         background-color: #f4f4f4;
     }
 
+
+
     @media only screen and (min-width: 900px) {
         .soundbutton{
             height: 100%;
             width: 10%;
             display: flex;
             writing-mode: vertical-lr;
+        }
+        .soundbutton__name{
+            transform: matrix(-1, 0, 0, -1, 0, 0);
         }
     }
 

@@ -41,6 +41,7 @@
         width: 280px;
         height: calc(100% - 20px);
         padding: 10px;
+        cursor: pointer;
     }
 
     .image{
@@ -60,6 +61,7 @@
         font-size: 18px;
         color: #333;
         font-family: 'Roboto', sans-serif;
+        cursor: pointer;
     }
 
     @media only screen and (min-width: 900px) {

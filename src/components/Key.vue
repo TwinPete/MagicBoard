@@ -7,7 +7,11 @@
             v-on:mouseleave="leaveKey()"
             v-on:mouseup="releaseKey()"
             v-on:mouseover="slide()"
-   ></div>
+   >
+      <div class="key__name">
+         {{ kei.name }}
+      </div>
+   </div>
 </template>
 
 <script>
@@ -20,12 +24,10 @@ export default {
    methods:{
      playKey(){
         this.kei.isActive = true;
-
          document.querySelector('.keyboard').classList.add('hover');
 
      },
       releaseKey(){
-         // alert('fgjgh');
          this.kei.isActive = false;
          document.querySelector('.keyboard').classList.remove('hover');
          },
@@ -33,26 +35,6 @@ export default {
          this.kei.isActive = false;
       },
       slide(){
-         // console.log('slide');
-         // if(this.$el.classList.contains('hover')){
-         //    console.log('hit');
-         // }
-         // if(this.$el.classList.contains('hover')){
-         //    // document.querySelector('.active').classList.remove('.active');
-         //    this.kei.isActive = true;
-         //
-         //    let elementsWithHover = document.getElementsByClassName('hover');
-         //    for(var element of elementsWithHover){
-         //       element.classList.remove('hover');
-         //       // document.querySelector('.' + key).kei.hover = false;
-         //
-         //    }
-         //
-         //    for (var key of this.kei.siblings) {
-         //       document.querySelector('.' + key).classList.add('hover');
-         //       // document.querySelector('.' + key).kei.hover = true;
-         //    }
-         // }
          let hoverModeActive = document.querySelector('.keyboard').classList.contains('hover');
          if( hoverModeActive){
             this.kei.isActive = true;
@@ -66,6 +48,9 @@ export default {
 <style scoped>
 
 .key{
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
    -webkit-user-drag: none;
    -khtml-user-drag: none;
    -moz-user-drag: none;
@@ -76,6 +61,14 @@ export default {
    -moz-user-select: none;
    -o-user-select: none;
    user-select: none;
+}
+
+.key__name{
+   font-size: 13px;
+   font-family: 'Roboto', sans-serif;
+   text-align: center;
+   margin-left: 20px;
+   writing-mode: vertical-lr;
 }
 
 .key--white{
@@ -109,6 +102,10 @@ export default {
     box-shadow: 1px 1px 1px 1px #444;
 }
 
+.key--black .key__name{
+   color: #fff;
+}
+
 .key--black.active{
     background-color: paleturquoise!important;
     z-index: 7;
@@ -140,6 +137,19 @@ export default {
 } */
 
 @media only screen and (min-width: 900px){
+
+   .key{
+      align-items: flex-end;
+      justify-content: center;
+   }
+
+   .key__name{
+      margin-bottom: 20px;
+      margin-left: 0;
+      writing-mode: horizontal-tb;
+      font-size: 15px;
+   }
+
   .key--white{
         width: 14.2857142857%;
         height: 100%;

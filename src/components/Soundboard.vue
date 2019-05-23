@@ -3,7 +3,9 @@
          v-bind:class="{soundboardactive: soundboardActive }"
     >
         <Soundbutton v-bind:key="soundbutton"  v-bind:soundbutton="soundbutton" v-for="soundbutton in soundbuttons"/>
-        <div class="soundboard__customizer" v-bind:class="{soundboard__customizerActive: (soundboardActive && editActive)}"></div>
+        <div class="soundboard__customizer" v-bind:class="{soundboard__customizerActive: (soundboardActive && editActive)}">
+            <div class="fileInput" v-bind:key="audioFiles" v-for="audioFiles in audioFiles"></div>
+        </div>
     </div>
 </template>
 
@@ -21,6 +23,39 @@
             return{
                 soundboard: false,
                 soundbuttons: [
+                    {
+                        title: 'btn1'
+                    },
+                    {
+                        title: 'btn2'
+                    },
+                    {
+                        title: 'btn3'
+                    },
+                    {
+                        title: 'btn4'
+                    },
+                    {
+                        title: 'btn5'
+                    },
+                    {
+                        title: 'btn6'
+                    },
+                    {
+                        title: 'btn7'
+                    },
+                    {
+                        title: 'btn8'
+                    },
+                    {
+                        title: 'btn9'
+                    },
+                    {
+                        title: 'btn10'
+                    },
+
+                ],
+                audioFiles: [
                     {
                         title: 'btn1'
                     },
@@ -93,12 +128,21 @@
         top: 0;
         left: 0;
         display: flex;
+        flex-direction: column;
         width: 100%;
         height: 100%;
         transform: translateY(-120%);
         transition: transform ease 0.8s;
         background-color: #444444;
         z-index: 9;
+    }
+
+    .fileInput{
+        display: flex;
+        width: 100%;
+        height: 10%;
+        border-right: 1px solid #333;
+        border-bottom: 1px solid #333;
     }
 
     .soundboard__customizerActive{
@@ -108,6 +152,13 @@
     @media only screen and (min-width: 900px) {
         .soundboardactive{
             flex-direction: row;
+        }
+        .soundboard__customizer{
+            flex-direction: row;
+        }
+        .fileInput{
+            width: 10%;
+            height: 100%;
         }
     }
 </style>
