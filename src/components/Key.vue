@@ -112,7 +112,7 @@ export default {
 .key--black.active{
     background-color: paleturquoise!important;
     z-index: 7;
-    width: 68%!important;
+    width: 69.5%!important;
 }
 
 .c-sharp1, .c-sharp2, .c-sharp3, .c-sharp4, .c-sharp5, .c-sharp6, .c-sharp7{
@@ -161,7 +161,7 @@ export default {
     .key--black.active{
         background-color: paleturquoise!important;
         z-index: 7;
-        height: 68%!important;
+        height: 69.5%!important;
         width: 8%!important;
     }
 

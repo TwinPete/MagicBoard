@@ -1,16 +1,19 @@
 <template>
   <div id="app">
+    <Header />
     <MagicBoard />
   </div>
 </template>
 
 <script>
 import MagicBoard from './components/MagicBoard.vue'
+import Header from './components/Header.vue'
 
 export default {
   name: 'app',
   components: {
-    MagicBoard
+    MagicBoard,
+    Header
   }
 }
 </script>
