@@ -56,7 +56,7 @@ export default {
     }
     @media only screen and (min-width: 900px){
         .toolbar{
-            width: 100%;
+            width: calc(100% - 40px);
             height: auto;
             flex-direction: row;
             justify-content: flex-start;

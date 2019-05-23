@@ -1,8 +1,8 @@
 <template>
-      <div class="wrapper">
+      <div class="magicboard">
         <Toolbar v-on:clickedSomething="switchBoard" v-bind:soundboardActive='soundboardActive'/>
-        <div class="magicboard">
-          <div class="frame">
+        <div class="frame">
+          <div class="wrapper">
               <Soundboard  v-bind:soundboardActive='soundboardActive' />
             <Keyboard />
           </div>
@@ -41,14 +41,14 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.wrapper{
+.magicboard{
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
     height: 90vw;
     justify-content: center;
 }
-.magicboard{
+.frame{
     position: relative;
     width: 96%;
     max-width: 55vh;
@@ -60,7 +60,7 @@ export default {
     align-items: center;
 }
 
-  .frame{
+  .wrapper{
     position: relative;
     width: 100%;
     height: 100%;
@@ -69,19 +69,19 @@ export default {
 }
 
 @media only screen and (min-width: 900px){
-  .wrapper{
+  .magicboard{
     width: auto;
     flex-direction: column;
     height: auto;
 }
-  .frame{
+  .wrapper{
         position: relative;
         width: 90vw;
         height: 30vw;
         max-height: 440px;
         max-width: 1400px;
     }
-  .magicboard{
+  .frame{
         width: 96%;
         height: 30vw;
         max-height: 440px;
