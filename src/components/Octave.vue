@@ -136,7 +136,9 @@ export default {
 .octave{
     position: relative;
     width: 100%;
-    height: 50%;
+    /*height: 50%;*/
+    min-height: 50%;
+    max-height: 50%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -152,7 +154,10 @@ export default {
 @media only screen and (min-width: 900px){
   
     .octave{
-        width: 50%;
+        min-width: 50%;
+        max-width: 50%;
+        min-height: unset;
+        max-height: none;
         height: 100%;
         flex-direction: row;
         align-items: flex-start;

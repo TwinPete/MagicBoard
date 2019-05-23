@@ -1,6 +1,15 @@
 <template>
    <div class="keyboard">
-       <Octave v-bind:pitch="octave.pitch" v-bind:key="index" v-for="(octave, index) in octaves" />
+       <div class="slider" v-bind:class="[
+       {slideZero: currentOctaveSlide == 0},
+       {slideOne: currentOctaveSlide == 1},
+       {slideTwo: currentOctaveSlide == 2},
+       {slideThree: currentOctaveSlide == 3},
+       {slideFour: currentOctaveSlide == 4},
+       {slideFive: currentOctaveSlide == 5}
+       ]">
+           <Octave v-bind:pitch="octave.pitch" v-bind:key="index" v-for="(octave, index) in octaves" />
+       </div>
        <div class="keyboard__customizer" v-bind:class="{keyboard__customizerActive: (!soundboardActive && editActive)}"></div>
    </div>
 </template>
@@ -13,15 +22,30 @@ export default {
   components: {
     Octave
   },
-  props: ['soundboardActive', 'editActive'],
+  props: ['soundboardActive', 'editActive', 'currentOctaveSlide'],
   data(){
       return{
           octaves: [
+              {
+                  pitch: 1
+              },
+              {
+                  pitch: 2
+              },
               {
                   pitch: 3
               },
               {
                   pitch: 4
+              },
+              {
+                  pitch: 5
+              },
+              {
+                  pitch: 6
+              },
+              {
+                  pitch: 7
               }
           ]
       }
@@ -36,12 +60,47 @@ export default {
     left: 0;
     height: 100%;
     max-width: 55vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     background-color: lightslategrey;
     width: 100%;
+    overflow: hidden;
     z-index: 1;
     top: 0;
 }
 
+.slider{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    transition: transform ease-in-out 0.8s;
+}
+
+.slideZero{
+    transform: translateY(0);
+}
+
+.slideOne{
+    transform: translateY(-50%);
+}
+
+.slideTwo{
+    transform: translateY(-100%);
+}
+
+.slideThree{
+    transform: translateY(-150%);
+}
+
+.slideFour{
+    transform: translateY(-200%);
+}
+
+.slideFive{
+    transform: translateY(-250%);
+}
 
 
 .keyboard__customizerActive{
@@ -72,8 +131,42 @@ export default {
         width: 100%;
         height: 100%;
         max-width: none;
-        display: flex;
+        flex-direction: row;
         justify-content: center;
+    }
+
+    .slider{
+        width: 100%;
+        height: 100%;
+        flex-direction: row;
+    }
+
+    .slideZero{
+        transform: translateY(0);
+        transform: translateX(0);
+    }
+
+    .slideOne{
+        transform: translateY(0);
+        transform: translateX(-50%);
+    }
+
+    .slideTwo{
+        transform: translateY(0);
+        transform: translateX(-100%);
+    }
+
+    .slideThree{
+        transform: translateY(0);
+        transform: translateX(-150%);
+    }
+    .slideFour{
+        transform: translateY(0);
+        transform: translateX(-200%);
+    }
+    .slideFive{
+        transform: translateY(0);
+        transform: translateX(-250%);
     }
 }
 </style>

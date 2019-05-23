@@ -3,8 +3,9 @@
           <div class="toolbar" >
               <div class="options">
                   <div class="circle" v-on:click="openEdit()">Edit</div>
-                  <div class="circle">dfh</div>
-                  <div class="circle">fgjd</div>
+                  <div class="circle" v-on:click="prevOctave()">Prev</div>
+                  <div class="circle sliderCount">{{ currentOctaveSlide }}</div>
+                  <div class="circle" v-on:click="nextOctave()">Next</div>
               </div>
               <div class="switch">
                   <div class="circle" v-on:click="switchBoard()">
@@ -16,7 +17,7 @@
         <div class="frame">
           <div class="wrapper">
               <Soundboard v-bind:editActive='editActive' v-bind:soundboardActive='soundboardActive' />
-              <Keyboard v-bind:editActive='editActive' v-bind:soundboardActive='soundboardActive' />
+              <Keyboard v-bind:editActive='editActive' v-bind:soundboardActive='soundboardActive' v-bind:currentOctaveSlide='currentOctaveSlide' />
 
           </div>
       </div> 
@@ -39,7 +40,8 @@ export default {
     data(){
         return{
             soundboardActive: false,
-            editActive: false
+            editActive: false,
+            currentOctaveSlide: 2
         }
     },
     methods:{
@@ -49,8 +51,17 @@ export default {
         },
         openEdit(){
             this.editActive = !this.editActive;
+        },
+        prevOctave(){
+            if(this.currentOctaveSlide > 0){
+                this.currentOctaveSlide -= 1;
+            }
+        },
+        nextOctave(){
+            if(this.currentOctaveSlide < 5){
+                this.currentOctaveSlide += 1;
+            }
         }
-
     }
 }
 </script>
@@ -116,7 +127,9 @@ export default {
     margin-bottom: 10px;
 }
 
-
+.sliderCount{
+    height: 50px;
+}
 
 .switch{
     width:100%;
@@ -164,6 +177,11 @@ export default {
         height: auto;
         margin-bottom: 0;
         cursor: pointer;
+    }
+
+    .sliderCount{
+        min-width: 50px;
+        max-width: 50px;
     }
 
     .switch{
