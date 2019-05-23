@@ -2,7 +2,9 @@
     <div class="header">
         <div class="header__content">
             <div class="logo">
-                <div class="image"></div>
+                <div class="image">
+                    <img src="../assets/logo.png" alt="">
+                </div>
             </div>
             <div class="auth">
                 <div class="login">Login</div>
@@ -48,6 +50,15 @@
         background-color: #9e383d;
         width: 100%;
         height: 100%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image img{
+        width: 100%;
+        height: 100%;
     }
 
     .auth{
@@ -63,6 +74,7 @@
         font-family: 'Roboto', sans-serif;
         cursor: pointer;
     }
+
 
     @media only screen and (min-width: 900px) {
 

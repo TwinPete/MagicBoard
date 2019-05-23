@@ -64,6 +64,7 @@ export default {
 }
 
 .key__name{
+   display: none;
    font-size: 13px;
    font-family: 'Roboto', sans-serif;
    text-align: center;

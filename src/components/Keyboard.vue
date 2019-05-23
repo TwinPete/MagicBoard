@@ -10,7 +10,16 @@
        ]">
            <Octave v-bind:pitch="octave.pitch" v-bind:key="index" v-for="(octave, index) in octaves" />
        </div>
-       <div class="keyboard__customizer" v-bind:class="{keyboard__customizerActive: (!soundboardActive && editActive)}"></div>
+       <div class="keyboard__customizer" v-bind:class="{keyboard__customizerActive: (!soundboardActive && editActive)}">
+           <div class="keyboardOptions">
+               <div class="keyboardOption" v-bind:key="option" v-for="option in keyboardOptions" v-on:click="toggleOption()">
+                   <div class="optionName">{{ option.name }}</div>
+                   <div class="optionChecker">
+                       <div class="led" v-bind:option="keyboardOption" v-bind:class="{ledActive: option.isActive }"></div>
+                   </div>
+               </div>
+           </div>
+       </div>
    </div>
 </template>
 
@@ -22,7 +31,7 @@ export default {
   components: {
     Octave
   },
-  props: ['soundboardActive', 'editActive', 'currentOctaveSlide'],
+  props: ['soundboardActive', 'editActive', 'currentOctaveSlide', 'option'],
   data(){
       return{
           octaves: [
@@ -47,9 +56,28 @@ export default {
               {
                   pitch: 7
               }
+          ],
+          keyboardOptions: [
+              {
+                  id: 1,
+                  name: 'Piano',
+                  isActive: true
+              },
+              {
+                  id: 2,
+                  name: 'Organ',
+                  isActive: false
+              }
           ]
       }
-  }
+  },
+    methods: {
+
+      toggleOption(){
+          alert();
+      }
+
+    }
 }
 </script>
 
@@ -112,12 +140,61 @@ export default {
     top: 0;
     left: 0;
     display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     transform: translateY(-120%);
     transition: transform ease 0.8s;
-    background-color: #9e383d;
+    background-color: #f4f4f4;
+    border-bottom: #9f9f9f solid 1px;
     z-index: 9;
+}
+
+.keyboardOptions{
+    width: calc(100% - 40px);
+    height: calc(100% - 40px);
+    /*border: solid 1px #333;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.keyboardOption{
+    display: flex;
+    border-radius: 3px;
+    background-color: #333333;
+    height: 36px;
+    margin-right: 10px;
+}
+
+.optionName{
+    padding: 10px 10px 10px 30px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333333;
+    text-align: center;
+    height: 16px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 3px;
+}
+
+.optionChecker{
+    display: flex;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 3px;
+}
+
+.led{
+    width: 20px;
+    height: 20px;
+    background-color: #444444;
+}
+
+.ledActive{
+    background-color: #52d97f;
 }
 
 .keyboard__customizerActive{

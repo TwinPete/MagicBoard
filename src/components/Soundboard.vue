@@ -4,7 +4,9 @@
     >
         <Soundbutton v-bind:key="soundbutton"  v-bind:soundbutton="soundbutton" v-for="soundbutton in soundbuttons"/>
         <div class="soundboard__customizer" v-bind:class="{soundboard__customizerActive: (soundboardActive && editActive)}">
-            <div class="fileInput" v-bind:key="audioFiles" v-for="audioFiles in audioFiles"></div>
+            <div class="fileInput" v-bind:key="audioFiles" v-for="audioFiles in audioFiles">
+                <input type="file">
+            </div>
         </div>
     </div>
 </template>
