@@ -9,8 +9,8 @@
               </div>
               <div class="switch">
                   <div class="circle" v-on:click="switchBoard()">
-                      <div v-if="soundboardActive">Soundboard</div>
-                      <div v-else>Keyboard</div>
+                      <div class="boardName" v-if="!soundboardActive">Soundboard</div>
+                      <div class="boardName" v-else>Keyboard</div>
                   </div>
               </div>
           </div>
@@ -130,9 +130,21 @@ export default {
 
 
 .switch{
-    width:100%;
+    position: relative;
+    height:38px;
 }
 
+.switch .circle{
+    height: 18px;
+}
+
+.boardName{
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 @media only screen and (min-width: 1281px) {
 

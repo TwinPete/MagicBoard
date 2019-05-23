@@ -87,7 +87,7 @@ export default {
 .key--white.active{
     background-color: palegreen!important;
     z-index: 4;
-    width: 98%!important;
+    width: 97.8%!important;
 }
 
 .key--black{
@@ -165,7 +165,7 @@ export default {
     .key--white.active{
         background-color: palegreen!important;
         z-index: 4;
-        height: 98%!important;
+        height: 97.8%!important;
         width: 14.2857142857%!important;
     }
 

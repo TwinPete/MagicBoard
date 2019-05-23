@@ -67,7 +67,32 @@ export default {
                   id: 2,
                   name: 'Organ',
                   isActive: false
-              }
+              },
+              {
+                  id: 3,
+                  name: 'Synth',
+                  isActive: false
+              },
+              {
+                  id: 4,
+                  name: 'bells',
+                  isActive: false
+              },
+              {
+                  id: 5,
+                  name: 'marimba',
+                  isActive: false
+              },
+              {
+                  id: 6,
+                  name: 'Hammond-Organ',
+                  isActive: false
+              },
+              {
+                  id: 7,
+                  name: 'flute',
+                  isActive: false
+              },
           ]
       }
   },
@@ -168,17 +193,19 @@ export default {
     display: flex;
     border-radius: 3px;
     background-color: #333333;
-    height: 36px;
+    height: 40px;
     margin-right: 10px;
 }
 
 .optionName{
+    display: flex;
+    align-items: center;
     padding: 10px 10px 10px 30px;
     font-size: 16px;
     color: #fff;
     background-color: #333333;
     text-align: center;
-    height: 16px;
+    height: 20px;
     font-family: 'Roboto', sans-serif;
     border-radius: 3px;
 }
@@ -187,7 +214,7 @@ export default {
     display: flex;
     align-items: center;
     width: 36px;
-    height: 36px;
+    height: 40px;
     border-radius: 3px;
 }
 

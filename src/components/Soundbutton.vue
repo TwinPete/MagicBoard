@@ -31,6 +31,9 @@
         background-color: #f4f4f4;
     }
 
+    .soundbutton__name{
+        font-family: 'Roboto', sans-serif;
+    }
 
 
     @media only screen and (min-width: 900px) {
