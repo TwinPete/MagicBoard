@@ -1,8 +1,9 @@
 <template>
     <div class="soundboard"
-         v-bind:class="{soundboardactive: soundboard }"
+         v-bind:class="{soundboardactive: soundboardActive }"
     >
         <Soundbutton v-bind:key="soundbutton"  v-bind:soundbutton="soundbutton" v-for="soundbutton in soundbuttons"/>
+        <div class="soundboard__customizer" v-bind:class="{soundboard__customizerActive: (soundboardActive && editActive)}"></div>
     </div>
 </template>
 
@@ -15,7 +16,7 @@
         components: {
             Soundbutton
         },
-        props: ['soundboardActive'],
+        props: ['soundboardActive', 'editActive'],
         data(){
             return{
                 soundboard: false,
@@ -54,16 +55,6 @@
                 ]
             }
         },
-        methods: {
-            push(){
-                this.soundboardActive = !this.soundboardActive;
-            }
-        },
-        mounted:  function mounted() {
-            this.$root.$on('clickedSomething', function() {
-                document.querySelector('.soundboard').classList.add('soundboardactive');
-            })
-        }
     }
 </script>
 
@@ -79,23 +70,39 @@
     }
 
     .soundboard{
-        display: none;
+        display: flex;
         position: absolute;
         left: 0;
         height: 100%;
         background-color: hotpink;
         transform: translateY(-110%);
+        transition: transform ease 0.8s;
         width: 100%;
         z-index: 9;
         top: 0;
     }
 
     .soundboardactive{
-        display: flex;
         justify-content: space-evenly;
         flex-direction: column;
         transform: translateY(0);
+    }
+
+    .soundboard__customizer{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transform: translateY(-120%);
         transition: transform ease 0.8s;
+        background-color: #444444;
+        z-index: 9;
+    }
+
+    .soundboard__customizerActive{
+        transform: translateY(0);
     }
 
     @media only screen and (min-width: 900px) {

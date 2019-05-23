@@ -1,7 +1,6 @@
 <template>
     <div class="toolbar"
-         v-on:click="switchBoard()"
-    >
+         v-on:click="switchBoard()">
         <div class="options">
             <div class="circle">button</div>
             <div class="circle">dfh</div>
