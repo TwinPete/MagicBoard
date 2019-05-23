@@ -4,7 +4,7 @@
               <div class="options">
                   <div class="circle" v-on:click="openEdit()">Edit</div>
                   <div class="circle" v-on:click="prevOctave()">Prev</div>
-                  <div class="circle sliderCount"> C{{ (currentOctaveSlide + 1) }} - B{{ (currentOctaveSlide + 2) }}</div>
+                  <div class="circle"><span class="sliderCount"> C{{ (currentOctaveSlide + 1) }} - B{{ (currentOctaveSlide + 2) }} </span></div>
                   <div class="circle" v-on:click="nextOctave()">Next</div>
               </div>
               <div class="switch">
@@ -114,6 +114,7 @@ export default {
 }
 
 .circle{
+    position: relative;
     padding: 10px;
     font-size: 1.8rem;
     color: #fff;
@@ -127,7 +128,13 @@ export default {
     margin-bottom: 10px;
 }
 
-
+.sliderCount{
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 .switch{
     position: relative;
