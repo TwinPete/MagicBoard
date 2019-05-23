@@ -1,6 +1,7 @@
 <template>
    <div
             class="key"
+            draggable="false"
             v-bind:class="[kei.color, kei.class, {active: kei.isActive}]"
             v-on:mousedown="playKey()"
             v-on:mouseleave="leaveKey()"
@@ -63,6 +64,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.key{
+   -webkit-user-drag: none;
+   -khtml-user-drag: none;
+   -moz-user-drag: none;
+   -o-user-drag: none;
+   user-drag: none;
+   -webkit-user-select: none;
+   -khtml-user-select: none;
+   -moz-user-select: none;
+   -o-user-select: none;
+   user-select: none;
+}
+
 .key--white{
     width: 100%;
     height: 14.08% ;

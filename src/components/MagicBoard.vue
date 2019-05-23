@@ -87,29 +87,40 @@ export default {
 
 .toolbar{
     width: 10%;
-    height:  100vh;
+    height: calc(100vh - 4%);
     display: flex;
-    justify-content: flex-start;
-    flex-direction: column;
+    justify-content: space-between;
+    flex-direction: row;
     align-items: flex-start;
     padding: 20px;
     writing-mode: vertical-lr;
 }
+
+.options{
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+
 .circle{
-    padding: 10px 20px;
+    padding: 10px;
     font-size: 1.8rem;
     color: #fff;
+    text-align: center;
     background-color: #333;
     margin-left: 5px;
     border-radius: 1px;
     font-family: sans-serif;
     height: 100px;
+    width: calc(100% - 30px);
     margin-bottom: 10px;
 }
 
 
 
-
+.switch{
+    width:100%;
+}
 
 
 
@@ -135,12 +146,16 @@ export default {
   }
 
     .toolbar{
-        width: calc(100% - 40px);
+        width: 96%;
+        padding: 2%;
         height: auto;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         writing-mode: horizontal-tb;
+    }
+    .options{
+        width:30%;
     }
     .circle{
         margin-left: 10px;
@@ -148,6 +163,11 @@ export default {
         text-align: center;
         height: auto;
         margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    .switch{
+        width: 320px;
     }
     
 }

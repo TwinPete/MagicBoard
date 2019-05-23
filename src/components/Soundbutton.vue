@@ -24,6 +24,11 @@
         justify-content: center;
         writing-mode: horizontal-tb;
         font-size: 18px;
+        cursor: pointer;
+    }
+
+    .soundbutton:hover{
+        background-color: #f4f4f4;
     }
 
     @media only screen and (min-width: 900px) {
