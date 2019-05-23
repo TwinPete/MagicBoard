@@ -1,5 +1,5 @@
 <template>
-   <div class="keyboard">
+   <div class="keyboard" v-on:mouseleave="resetKeyboard()">
        <div class="slider" v-bind:class="[
        {slideZero: currentOctaveSlide == 0},
        {slideOne: currentOctaveSlide == 1},
@@ -72,6 +72,10 @@ export default {
       }
   },
     methods: {
+
+        resetKeyboard(){
+            document.querySelector('.keyboard').classList.remove('hover');
+        },
 
       toggleOption(){
           alert();
