@@ -12,10 +12,15 @@
        </div>
        <div class="keyboard__customizer" v-bind:class="{keyboard__customizerActive: (!soundboardActive && editActive)}">
            <div class="keyboardOptions">
-               <div class="keyboardOption" v-bind:key="option" v-for="option in keyboardOptions" v-on:click="toggleOption()">
+               <div class="keyboardOption"
+                    v-bind:key="option" v-for="option in keyboardOptions"
+                    v-on:click="function(){
+                         option.isActive = true;
+                    }"
+               >
                    <div class="optionName">{{ option.name }}</div>
                    <div class="optionChecker">
-                       <div class="led" v-bind:option="keyboardOption" v-bind:class="{ledActive: option.isActive }"></div>
+                       <div class="led" v-bind:active="option.isActive"   v-bind:class="{ledActive: option.isActive }"></div>
                    </div>
                </div>
            </div>
@@ -102,8 +107,10 @@ export default {
             document.querySelector('.keyboard').classList.remove('hover');
         },
 
-      toggleOption(){
-          alert();
+      selectStyle(){
+            // with this function the user selects the style the keyboard plays
+          alert(this.option);
+          this.option.isActive = !this.option.isActive;
       }
 
     }

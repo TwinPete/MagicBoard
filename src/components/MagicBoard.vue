@@ -18,7 +18,6 @@
           <div class="wrapper">
               <Soundboard v-bind:editActive='editActive' v-bind:soundboardActive='soundboardActive' />
               <Keyboard v-bind:editActive='editActive' v-bind:soundboardActive='soundboardActive' v-bind:currentOctaveSlide='currentOctaveSlide' />
-
           </div>
       </div> 
       </div>
