@@ -8,15 +8,13 @@
        {slideFour: currentOctaveSlide == 4},
        {slideFive: currentOctaveSlide == 5}
        ]">
-           <Octave v-bind:pitch="octave.pitch" v-bind:key="index" v-for="(octave, index) in octaves" />
+           <Octave v-bind:pitch="octave.pitch" v-bind:key="octave.id" v-for="(octave) in octaves" />
        </div>
        <div class="keyboard__customizer" v-bind:class="{keyboard__customizerActive: (!soundboardActive && editActive)}">
            <div class="keyboardOptions">
                <div class="keyboardOption"
-                    v-bind:key="option" v-for="option in keyboardOptions"
-                    v-on:click="function(){
-                         option.isActive = true;
-                    }"
+                    v-bind:key="option.id" v-for="option in keyboardOptions"
+                    v-on:click="selectOption(option.id)"
                >
                    <div class="optionName">{{ option.name }}</div>
                    <div class="optionChecker">
@@ -41,24 +39,31 @@ export default {
       return{
           octaves: [
               {
+                  id: 1,
                   pitch: 1
               },
               {
+                  id: 2,
                   pitch: 2
               },
               {
+                  id: 3,
                   pitch: 3
               },
               {
+                  id: 4,
                   pitch: 4
               },
               {
+                  id: 5,
                   pitch: 5
               },
               {
+                  id: 6,
                   pitch: 6
               },
               {
+                  id: 7,
                   pitch: 7
               }
           ],
@@ -80,12 +85,12 @@ export default {
               },
               {
                   id: 4,
-                  name: 'bells',
+                  name: 'Bells',
                   isActive: false
               },
               {
                   id: 5,
-                  name: 'marimba',
+                  name: 'Marimba',
                   isActive: false
               },
               {
@@ -95,24 +100,27 @@ export default {
               },
               {
                   id: 7,
-                  name: 'flute',
+                  name: 'Flute',
                   isActive: false
               },
           ]
       }
   },
     methods: {
-
         resetKeyboard(){
             document.querySelector('.keyboard').classList.remove('hover');
         },
+        selectOption(id){
+            let closeOption = this.keyboardOptions.filter(option => option.isActive == true);
+            closeOption[0].isActive = false;
+            let activateOption = this.keyboardOptions.filter(option => option.id == id);
+            activateOption[0].isActive = true;
+            this.initializeStyle(activateOption[0].name);
+        },
+        initializeStyle(option){
+            console.log(option);
 
-      selectStyle(){
-            // with this function the user selects the style the keyboard plays
-          alert(this.option);
-          this.option.isActive = !this.option.isActive;
-      }
-
+        }
     }
 }
 </script>

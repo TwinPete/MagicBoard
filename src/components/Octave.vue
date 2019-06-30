@@ -1,6 +1,6 @@
 <template>
    <div class="octave">
-           <Key v-bind:key="kei"  v-bind:kei="kei" v-for="kei in keys"/>
+           <Key v-bind:key="kei.name"  v-bind:kei="kei" v-for="kei in keys"/>
    </div>
 </template>
 

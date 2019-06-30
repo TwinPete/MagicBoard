@@ -1,13 +1,42 @@
 <template>
-    <div class="soundbutton">
+    <div class="soundbutton"
+        @mousedown="play()"
+        @mouseup="release()"
+    >
             <div class="soundbutton__name">{{ this.soundbutton.title }}</div>
     </div>
 </template>
 
 <script>
+    import Tone from 'tone'
+
     export default {
         name: "Soundbutton",
-        props: ['soundbutton']
+        props: ['soundbutton'],
+        data(){
+            return{
+                synth: ''
+            }
+        },
+        watch: {
+
+        },
+        methods: {
+            initialiseSound(){
+                this.synth = new Tone.Synth().toMaster();
+            },
+            play(){
+                //play a middle 'C' for the duration of an 8th note
+                this.synth.triggerAttackRelease(this.soundbutton.name, '8n');
+            },
+            release(){
+
+            }
+        },
+        mounted (){
+
+        }
+
     }
 
 </script>

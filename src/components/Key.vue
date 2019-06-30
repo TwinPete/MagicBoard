@@ -15,16 +15,30 @@
 </template>
 
 <script>
+    import Tone from 'tone'
 
 export default {
   name: 'Key',
   components: {
   },
   props: ['kei'],
+  data(){
+      return{
+          synth: ''
+      }
+  },
+  watch: {
+
+  },
    methods:{
+     initializeKey(){
+         this.synth = new Tone.Synth().toMaster();
+     },
      playKey(){
         this.kei.isActive = true;
          document.querySelector('.keyboard').classList.add('hover');
+
+         this.synth.triggerAttackRelease(this.kei.name, '8n');
 
      },
       releaseKey(){
@@ -38,9 +52,13 @@ export default {
          let hoverModeActive = document.querySelector('.keyboard').classList.contains('hover');
          if( hoverModeActive){
             this.kei.isActive = true;
+             this.synth.triggerAttackRelease(this.kei.name, '8n');
          }
       }
-   }
+   },
+    mounted(){
+      this.initializeKey();
+    }
 }
 </script>
 
