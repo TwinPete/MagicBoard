@@ -21,7 +21,7 @@ export default {
               pitch: this.pitch,
               color: 'key--white',
               class: 'c' + this.pitch,
-               isActive : false,
+               isActive : false
            },
            {
               name: 'C#' + this.pitch,

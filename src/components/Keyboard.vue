@@ -28,6 +28,7 @@
 
 <script>
 import Octave from './Octave.vue'
+import Tone from 'tone'
 
 export default {
   name: 'Keyboard',
@@ -75,34 +76,67 @@ export default {
               },
               {
                   id: 2,
-                  name: 'Organ',
-                  isActive: false
-              },
-              {
-                  id: 3,
                   name: 'Synth',
                   isActive: false
+              }
+          ],
+          keyboardInputKeys: [
+              {
+                  key: 'a',
+                  name: 'C'
               },
               {
-                  id: 4,
-                  name: 'Bells',
-                  isActive: false
+                  key: 'w',
+                  name: 'C#'
               },
               {
-                  id: 5,
-                  name: 'Marimba',
-                  isActive: false
+                  key: 's',
+                  name: 'D'
               },
               {
-                  id: 6,
-                  name: 'Hammond-Organ',
-                  isActive: false
+                  key: 'e',
+                  name: 'D#'
               },
               {
-                  id: 7,
-                  name: 'Flute',
-                  isActive: false
+                  key: 'd',
+                  name: 'E'
               },
+              {
+                  key: 'f',
+                  name: 'F'
+              },
+              {
+                  key: 't',
+                  name: 'F#'
+              },
+              {
+                  key: 'g',
+                  name: 'G'
+              },
+              {
+                  key: 'z',
+                  name: 'G#'
+              },
+              {
+                  key: 'h',
+                  name: 'A'
+              },
+              {
+                  key: 'u',
+                  name: 'A#'
+              },
+              {
+                  key: 'j',
+                  name: 'B'
+              },
+              {
+                  key: 'k',
+                  name: 'C'
+              },
+              {
+                  key: 'w',
+                  name: 'C#'
+              }
           ]
       }
   },
@@ -120,7 +154,24 @@ export default {
         initializeStyle(option){
             console.log(option);
 
+        },
+        keyboardInput(event){
+            console.log(event.key);
+            let key = this.keyboardInputKeys.filter( k => k.key == event.key);
+
+            let name = key[0].name + (this.currentOctaveSlide + 1)
+            console.log(key[0].name);
+            console.log(this.currentOctaveSlide);
+            this.synth = new Tone.Synth().toMaster();
+            this.synth.oscillator.type = "sine";
+
+            this.synth.triggerAttackRelease(name, '8n');
         }
+    },
+    mounted() {
+
+      window.addEventListener('keydown', this.keyboardInput);
+
     }
 }
 </script>

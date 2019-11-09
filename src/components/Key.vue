@@ -17,6 +17,7 @@
 <script>
     import Tone from 'tone'
 
+
 export default {
   name: 'Key',
   components: {
@@ -33,6 +34,7 @@ export default {
    methods:{
      initializeKey(){
          this.synth = new Tone.Synth().toMaster();
+         this.synth.oscillator.type = "sine";
      },
      playKey(){
         this.kei.isActive = true;

@@ -1,22 +1,17 @@
 <template>
   <div id="app">
-    <Header />
-    <MagicBoard />
+    <!--<div id="nav">-->
+      <!--<router-link to="/">Home</router-link> |-->
+      <!--<router-link to="/about">About</router-link>-->
+    <!--</div>-->
+    <router-view/>
+
+    <!--<ion-app>-->
+
+      <!--<ion-vue-router />-->
+    <!--</ion-app>-->
   </div>
 </template>
-
-<script>
-import MagicBoard from './components/MagicBoard.vue'
-import Header from './components/Header.vue'
-
-export default {
-  name: 'app',
-  components: {
-    MagicBoard,
-    Header
-  }
-}
-</script>
 
 <style>
 

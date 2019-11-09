@@ -4,7 +4,7 @@
               <div class="options">
                   <div class="circle" v-on:click="openEdit()">Edit</div>
                   <div class="circle" v-on:click="prevOctave()">Prev</div>
-                  <div class="circle"><span class="sliderCount"> C{{ (currentOctaveSlide + 1) }} - B{{ (currentOctaveSlide + 2) }} </span></div>
+                  <div class="circle circleCounter"><span class="sliderCount"> C{{ (currentOctaveSlide + 1) }} - B{{ (currentOctaveSlide + 2) }} </span></div>
                   <div class="circle" v-on:click="nextOctave()">Next</div>
               </div>
               <div class="switch">
@@ -96,40 +96,48 @@ export default {
 }
 
 .toolbar{
-    width: 10%;
+    width: auto;
     height: calc(100vh - 4%);
     display: flex;
     justify-content: space-between;
     flex-direction: row;
     align-items: flex-start;
-    padding: 20px;
+    padding: 20px 1px;
     writing-mode: vertical-lr;
 }
 
 .options{
     display: flex;
     justify-content: space-between;
-    width:100%;
 }
 
 .circle{
     position: relative;
-    padding: 10px;
-    font-size: 1.8rem;
+    padding: 5px;
+    font-size: 1.2rem;
     color: #fff;
     text-align: center;
     background-color: #333;
     margin-left: 5px;
     border-radius: 1px;
     font-family: sans-serif;
-    height: 100px;
-    width: calc(100% - 30px);
+    /*height: 115px;*/
+    min-height: 50px;
+    width: auto;
     margin-bottom: 10px;
 }
 
+.circleCounter{
+    min-width: auto;
+    min-height: 115px;
+}
+
+/*.circle:nth-child(2){*/
+    /*min-height: 115px;*/
+/*}*/
+
 .sliderCount{
     position: absolute;
-    width: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -137,15 +145,17 @@ export default {
 
 .switch{
     position: relative;
-    height:38px;
+    height: auto ;
 }
 
 .switch .circle{
-    height: 18px;
+    height: 160px;
+    width: 1.8rem;
 }
 
+
 .boardName{
-    width: 200px;
+    width: 1.8rem;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -193,22 +203,59 @@ export default {
         width:30%;
     }
     .circle{
+        font-size: 1.8rem;
         margin-left: 10px;
         min-width: 100px;
         text-align: center;
         height: auto;
         margin-bottom: 0;
+        min-height: auto;
+        padding: 10px;
+
+    }
+
+    .circleCounter{
+        min-width: 115px;
+        min-height: auto;
     }
 
     .circle:not(.slideCount){
         cursor: pointer;
     }
 
-
-
     .switch{
-        width: 320px;
+        position: relative;
+        height:38px;
     }
+
+
+    .switch .circle{
+        width: 160px;
+        height: 1.8rem;
+    }
+
+    .boardName{
+        width: 200px;
+    }
+
+
+
+
     
+}
+
+@media only screen and (max-width: 500px){
+    .circle{
+        min-height: 35px!important;
+    }
+
+    .circleCounter{
+        min-height: 75px!important;
+    }
+
+    .switch .circle{
+        height: 100px;
+        margin-bottom: 25px;
+    }
 }
 </style>
